@@ -1,0 +1,80 @@
+
+body {
+  background-image: url();
+}
+
+.container img {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.data {
+  z-index: 20;
+  color: aliceblue;
+}
+
+.blur {
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  background-color: black;
+  opacity: 0.8;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.right {
+  min-width: 40%;
+  margin: 50px auto;
+  background-color: rgb(9, 54, 83);
+  color: white;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+  border-radius: 10px;
+}
+
+/* .left {
+    width: 50%;
+    height: 100vh;
+} */
+
+.right a {
+  color: aliceblue;
+  text-decoration: dashed;
+}
+
+.navig {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100;
+}
+
+.navig div {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#login {
+  padding: 20px;
+}
+
+#register {
+  padding: 20px;
+}

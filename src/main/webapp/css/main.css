@@ -1,0 +1,65 @@
+
+.user-page {
+  background-color: white;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 10px;
+
+  /* box-shadow: 10px 10px 5px 12px white; */
+}
+
+header {
+  padding: 20px;
+  background-color: teal;
+  color: aliceblue;
+}
+
+main {
+  padding: 20px;
+}
+
+.input-field {
+  padding: 10px 0;
+}
+
+.input-field input,
+label,
+textarea {
+  width: 100%;
+}
+
+.input-field input,
+textarea {
+  padding: 15px;
+  border: 0;
+  background-color: aliceblue;
+  outline: none;
+}
+
+.input-field input:focus, textarea:focus {
+  border: 2px solid teal;
+}
+
+.row {
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+}
+
+.input-radio {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.input-submit {
+  padding: 10px 0;
+}
+
+.input-submit button {
+  padding: 10px 20px;
+  background-color: teal;
+  border: 0;
+  color: aliceblue;
+  font-weight: bolder;
+}

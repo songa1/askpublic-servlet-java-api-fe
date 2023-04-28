@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account - Ask Public</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="css/dashboard-content.css" type="text/css" />
+
+    <style>
+      #logo-img {
+        text-align: center;
+        padding: 20px;
+        color: white;
+      }
+
+      #back {
+        text-align: center;
+        padding: 20px auto;
+        margin: 50px 0 0 0;
+      }
+
+      .right {
+        min-width: 40%;
+        margin: 50px auto;
+        background-color: rgb(9, 54, 83);
+        color: white;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px,
+          rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px,
+          rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="account">
+      <a href="./index.html" id="back">Back</a>
+      <div class="right">
+        <p id="logo-img">Ask Public</p>
+        <div class="navig">
+          <div id="logBtn">Login</div>
+          <div id="regBtn">Register</div>
+        </div>
+        <div class="login" id="login">
+          <form>
+            <div class="input-field">
+              <label>Email</label>
+              <input type="email" name="email_login" id="emaillog" required />
+            </div>
+            <div class="input-field">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password_login"
+                id="passwordlog"
+                required
+              />
+            </div>
+            <div class="input-submit row">
+              <input
+                type="submit"
+                class="btn"
+                name="login_submit"
+                id="login_submit"
+                value="Login"
+              />
+              <a href="#">Forgot password?</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="register" id="register">
+          <form method="POST">
+            <div class="input-field">
+              <label>Names</label>
+              <input type="text" name="names" id="username" />
+            </div>
+            <div class="input-field">
+              <label>Email</label>
+              <input type="email" name="email_reg" id="emailreg" />
+            </div>
+            <div class="input-field">
+              <label>Password</label>
+              <input type="password" name="password_reg" id="passreg" />
+            </div>
+            <div class="input-submit row">
+              <input
+                type="submit"
+                value="Register"
+                class="btn"
+                id="reg_btn"
+                name="register_button"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      let loginEmail = document.querySelector("#emaillog");
+      let loginPassword = document.querySelector("#passwordlog");
+
+      let loginButton = document.getElementById("login_submit");
+
+      loginButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        fetch(
+          "http://localhost:8080/askpublic-1.0/login?email=" +
+            loginEmail.value +
+            "&password=" +
+            loginPassword.value +
+            ""
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.code === 200) {
+              localStorage.setItem("user", data.payload);
+              alert(data.msg);
+              window.location.href =
+                "./dashboard/listing.html?username=" + data.payload;
+            } else {
+              alert(data.msg);
+              window.location.href = "./account.html";
+            }
+          })
+          .catch((err) => {
+            alert(err.message);
+            window.location.href = "./account.html";
+          });
+      });
+
+      // Register
+
+      let password = document.querySelector("#passreg").value;
+      let email = document.querySelector("#emailreg").value;
+      let username = document.querySelector("#username").value;
+
+      let regButton = document.getElementById("reg_btn");
+
+      regButton.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const data = {
+          email,
+          username,
+          password,
+        };
+        let formBody = [];
+
+        for (let key in data) {
+          var encodedKey = encodeURIComponent(key);
+          var encodedValue = encodeURIComponent(data[key]);
+          formBody.push(encodedKey + "=" + encodedValue);
+        }
+
+        formBody = formBody.join("&");
+        console.log(formBody);
+
+        fetch("http://localhost:8080/askpublic-1.0/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          body: formBody,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.code === 201) {
+              alert(data.msg);
+              window.location.href = "./account.html";
+            } else {
+              alert(data.msg);
+              window.location.href = "./account.html";
+            }
+          })
+          .catch((err) => alert(err.message));
+      });
+    </script>
+    <script src="./js/account.js"></script>
+  </body>
+</html>

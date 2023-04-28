@@ -1,0 +1,116 @@
+
+.right-content {
+  padding: 0 20px;
+  flex: 6;
+}
+
+.surveys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 90%;
+  overflow: scroll;
+  padding: 20px auto;
+}
+
+.survey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid teal;
+  border-radius: 15px;
+  gap: 10px;
+  width: 70%;
+}
+
+.survey img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.survey p {
+  margin: 0;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+}
+
+.mdata a {
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: large;
+    color: rgb(9, 54, 83);
+}
+
+.dash-top-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 auto 20px auto;
+  margin-bottom: 20px;
+}
+
+.dash-top-title h2 {
+  margin: 0;
+  color: teal;
+}
+
+.dash-top-title input {
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 5px solid teal;
+  background-color: transparent;
+  outline: none;
+  color: teal;
+}
+
+.add-form {
+  background-color: #fff;
+  padding: 5px;
+  flex: 8;
+}
+
+.add-form input {
+  padding: 10px;
+  width: 100%;
+}
+
+.add-form textarea {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.cont {
+  display: flex;
+  gap: 10px;
+}
+
+.rightbar {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link,
+.privacy {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.link input,
+.privacy select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.action-btn {
+  font-size: 10px;
+}

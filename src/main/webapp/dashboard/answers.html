@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | List of surveys</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/dashboard-content.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <section class="dash-topnav">
+        <h2 class="dash-logo">AskPublic</h2>
+        <div class="right-actions">
+          <button>Notifications</button>
+          <button onclick="gotoNew()">Add New +</button>
+        </div>
+      </section>
+      <section class="main-body">
+        <div class="left-menu">
+          <div class="profile">
+            <img
+              src="../assets/logo/ask public.png"
+              alt="Cishahayo Songa Achille"
+            />
+            <div class="metadata">
+              <h3>Username</h3>
+              <p title="position-title">Administrator</p>
+            </div>
+          </div>
+          <div class="menu">
+            <a href="#">Analytics</a>
+            <a href="./listing.html" class="active">Surveys</a>
+            <a href="./users.html">Users</a>
+            <a href="#">Settings</a>
+            <button onclick="logout()" id="logout">Logout</button>
+          </div>
+        </div>
+        <div class="right-content">
+          <div class="dash-top-title">
+            <h2>Answers to the question</h2>
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <div class="surveys">
+            <div class="survey">
+              <div class="mdata">
+                <a>Answer</a>
+                <p>created today</p>
+              </div>
+            </div>
+
+            <h1>There are no answers at the moment!</h1>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../js/goto.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/checkAuth.js"></script>
+  </body>
+</html>

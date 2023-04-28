@@ -1,0 +1,5 @@
+com/achille/askpublic/ApiResponse.class
+com/achille/askpublic/JakartaRestConfiguration.class
+com/achille/askpublic/resources/JakartaEE8Resource.class
+com/achille/askpublic/User.class
+com/achille/askpublic/LoginServlet.class
